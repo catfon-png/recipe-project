@@ -5,7 +5,7 @@ const port = 5000;
 app.use(express.json());
 
 
-app.get('api/recipes', (req, res) => {
+app.get('/api/recipes', (req, res) => {
     res.json({message: 'There is a recipe here'})
 })
 

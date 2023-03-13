@@ -1,0 +1,23 @@
+{
+  "name": "recipe-project",
+  "version": "1.0.0",
+  "description": "A fullstack project to show recipes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catfon-png/recipe-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catfon-png/recipe-project/issues"
+  },
+  "homepage": "https://github.com/catfon-png/recipe-project#readme",
+  "devDependencies": {
+    "@types/node": "^18.15.1"
+  }
+}

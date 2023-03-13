@@ -1,0 +1,12 @@
+.search{
+    color: aqua;
+    margin: 50px;
+    /* padding: 10px; */
+}
+
+.search-recipe__input, .search-recipe__button{
+    margin: 10px;
+    padding: 5px;
+}
+
+/* .search-recipe__button */

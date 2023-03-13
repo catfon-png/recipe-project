@@ -1,17 +1,29 @@
-import React, {useRef, FormEvent, RefObject} from "react";
-// import fetchData from 'server'
+import React, {useRef, FormEvent, RefObject, useState, useContext} from "react";
+import { AppContext } from "../AppContext";
+import '../styles/Search.css'
+// import fetchData from './'
 
 const Search = () => {
     const searchInput = useRef<HTMLInputElement>(null);
-    const searchHandler = (e : FormEvent<HTMLButtonElement>) => {
+    const {setRecipe} = useContext(AppContext);
+    const submitHandler = (e : FormEvent) => {
         e.preventDefault();
         const search : string = searchInput.current!.value;
         console.log('You searched:', search) 
+        setRecipe(search)
+        // fetch
+        // return search;
         // fetchData(search)
+        // console.log(se
+        // searchInput.reset()
     }
+    // const submitHandler =
+
   return (
     <section className="search">
       <h1>Search for a recipe</h1>
+      <form onSubmit={submitHandler}>
+
       <label className="search-recipe">
         <input
           type="text"
@@ -19,9 +31,10 @@ const Search = () => {
           className="search-recipe__input"
           placeholder="search for a recipe"
           ref={searchInput}
-        />
+          />
       </label>
-      <button className="search-recipe__button" onClick={searchHandler}>Search!</button>
+      <button className="search-recipe__button" type='submit'>Search!</button>
+          </form>
     </section>
   );
 };

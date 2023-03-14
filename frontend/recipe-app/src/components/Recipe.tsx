@@ -27,13 +27,14 @@ const Recipe = (props: recipeProps) => {
 
   return (
     <div className="recipe">
-      <h3>{label}</h3>
+      <h2>{label}</h2>
       <img className="recipe__image" src={image} alt="" />
-      <p className="recipe__image">Source:{source}</p>
-      <p className="recipe__url">{shareAs}</p>
+      <h4>Ingredients:</h4>
       {ingredientLines.map((ing: string, index: number) => (
         <li key={index}>{ing}</li>
       ))}
+      <p className="recipe__image">Source: {source}</p>
+      <p className="recipe__url"><a href={shareAs}>Check the full recipe here</a></p>
       <button onClick={saveHandler}>Save</button>
       {/* <button> Delete</button> */}
     </div>

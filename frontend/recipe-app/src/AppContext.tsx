@@ -9,7 +9,9 @@ interface IAppContext {
   recipes : IRecipe[];
   savedRecipes: ISavedRecipe[];
   setSavedRecipes: (recipe : ISavedRecipe[]) => void;
-
+  showSavedRecipes: boolean;
+  setShowSavedRecipes: (recipe : boolean) => void;
+  deleteRecipe: (recipe : ISavedRecipe) => void;
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -19,6 +21,8 @@ export const AppContext = createContext<IAppContext>({
   setQuery: (recipe) => {},
   recipes : [],
   savedRecipes: [],
-  setSavedRecipes: (recipe) => {} 
-
+  setSavedRecipes: (recipe) => {}, 
+  showSavedRecipes : false,
+  setShowSavedRecipes: (recipe) => {},
+  deleteRecipe: (recipe) => {}
 });

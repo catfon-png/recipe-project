@@ -1,36 +1,41 @@
-import React, {useRef, FormEvent, RefObject, useState, useContext} from "react";
+import React, {
+  useRef,
+  FormEvent,
+  RefObject,
+  useState,
+  useContext,
+} from "react";
 import { AppContext } from "../AppContext";
-import '../styles/Search.css'
-// import fetchData from './'
+import "../styles/Search.css";
 
 const Search = () => {
-    const searchInput = useRef<HTMLInputElement>(null);
-    const {setQuery, setSearch, recipes} = useContext(AppContext);
-    const submitHandler = (e : FormEvent) => {
-        e.preventDefault();
-        const search : string = searchInput.current!.value;
-        console.log('You searched:', search) 
-        setSearch(search)
-        setQuery(search)
-       
-    }
+  const searchInput = useRef<HTMLInputElement>(null);
+  const { setQuery, setSearch, recipes } = useContext(AppContext);
+  const submitHandler = (e: FormEvent) => {
+    e.preventDefault();
+    const search: string = searchInput.current!.value;
+    console.log("You searched:", search);
+    setSearch(search);
+    setQuery(search);
+  };
 
   return (
     <section className="search">
       <h1>Search for a recipe</h1>
       <form onSubmit={submitHandler}>
-
-      <label className="search-recipe">
-        <input
-          type="text"
-          name="search"
-          className="search-recipe__input"
-          placeholder="search for a recipe"
-          ref={searchInput}
+        <label className="search-recipe">
+          <input
+            type="text"
+            name="search"
+            className="search-recipe__input"
+            placeholder="search for a recipe"
+            ref={searchInput}
           />
-      </label>
-      <button className="search-recipe__button" type='submit'>Search!</button>
-          </form>
+        </label>
+        <button className="search-recipe__button" type="submit">
+          Search!
+        </button>
+      </form>
     </section>
   );
 };

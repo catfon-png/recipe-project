@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import axios from "axios";
 import cors from "cors";
-import { saveRecipe } from "./mongodb";
+import { dbRecipes, deleteRecipe, saveRecipe } from "./mongodb";
 
 const app: Application = express();
 const port = 5000;
@@ -14,8 +14,12 @@ const apiUrl = `https://api.edamam.com/search?q=pasta&app_id=${apiId}&app_key=${
 
 // Don't forget error handling!!
 app.get("/api/recipes", async (req, res) => {
-  res.send([]);
+  const savedRecipes = await dbRecipes();
+  const arraySavedRecipes = await savedRecipes.toArray();
+  console.log("this", arraySavedRecipes);
+  res.send(arraySavedRecipes);
 });
+
 app.get("/api/recipes/:query", async (req, res) => {
   const response = await axios.get(
     `https://api.edamam.com/search?q=${req.params.query}&app_id=${apiId}&app_key=${apiKey}`
@@ -23,12 +27,22 @@ app.get("/api/recipes/:query", async (req, res) => {
   // console.log(response.data.hits);
   res.json(response.data.hits);
 });
+// app.get("api/recipes/");
 
 app.post("/api/recipes", async (req, res) => {
   console.log("mokoko");
   saveRecipe(req.body);
   return res.status(201).json();
 });
+
+// app.delete("/api/recipes", async (req, res) => {
+//   try {
+//     await deleteRecipe();
+//     res.status(204).send();
+//   } catch (error) {
+//     res.status(500).send(error);
+//   }
+// });
 
 app.listen(port, () => {
   console.log(`App listening on ${port}`);

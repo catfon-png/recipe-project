@@ -23,6 +23,19 @@ export const saveRecipe = async (recipe : any) => {
   return recipe;
 }
 
+export const dbRecipes = async () => {
+  const collection = await getCollection();
+  const result = await collection.find();
+  return result;
+}
+
+export const deleteRecipe = async (recipe : any) => {
+  const collection = await getCollection();
+  const deletedRecipe = await collection.deleteOne(recipe)
+  return deletedRecipe;
+
+}
+
 // const getCartCollection = async () => {
 //   await client.connect();
 //   const db = client.db('Cluster0');

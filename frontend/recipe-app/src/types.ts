@@ -1,37 +1,40 @@
 export interface IRecipeClass {
-    uri:             string;
-    label:           string;
-    image:           string;
-    source:          string;
-    url:             string;
-    shareAs:         string;
-    yield:           number;
-    dietLabels:      any[];
-    healthLabels:    any[];
-    cautions:        any[];
-    ingredientLines: string[];
-    ingredients:     any[];
-    calories:        number;
-    totalWeight:     number;
-    totalTime:       number;
-    cuisineType:     any[];
-    mealType:        any[];
-    dishType:        any[];
-    totalNutrients:  Total;
-    totalDaily:      Total;
-    digest:          any[];
+  uri: string;
+  label: string;
+  image: string;
+  source: string;
+  url: string;
+  shareAs: string;
+  yield: number;
+  dietLabels: any[];
+  healthLabels: any[];
+  cautions: any[];
+  ingredientLines: string[];
+  ingredients: any[];
+  calories: number;
+  totalWeight: number;
+  totalTime: number;
+  cuisineType: any[];
+  mealType: any[];
+  dishType: any[];
+  totalNutrients: Total;
+  totalDaily: Total;
+  digest: any[];
 }
-export interface IIngredients {
-    
+export interface ISavedRecipe {
+  label: string;
+  image: string;
+  source: string;
+  shareAs: string;
+  ingredientLines: string[];
 }
 
 export interface IRecipe {
-    recipes: IRecipeClass;
+  recipes: IRecipeClass;
 }
 
 export interface IRecipes {
-    recipes: IRecipeClass[];
+  recipes: IRecipeClass[];
 }
 
-export interface Total {
-}
+export interface Total {}

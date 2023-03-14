@@ -1,4 +1,4 @@
-export interface RecipeClass {
+export interface IRecipeClass {
     uri:             string;
     label:           string;
     image:           string;
@@ -22,13 +22,13 @@ export interface RecipeClass {
     digest:          any[];
 }
 
-export interface Recipe {
-    recipes: RecipeClass;
+export interface IRecipe {
+    recipes: IRecipeClass;
 }
 
-// export interface Recipes {
-//     recipes: RecipeClass[];
-// }
+export interface IRecipes {
+    recipes: IRecipeClass[];
+}
 
 export interface Total {
 }

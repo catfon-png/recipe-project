@@ -5,20 +5,20 @@ import '../styles/Search.css'
 
 const Search = () => {
     const searchInput = useRef<HTMLInputElement>(null);
-    const {setQuery, setSearch} = useContext(AppContext);
+    const {setQuery, setSearch, recipes} = useContext(AppContext);
     const submitHandler = (e : FormEvent) => {
         e.preventDefault();
         const search : string = searchInput.current!.value;
         console.log('You searched:', search) 
         setSearch(search)
         setQuery(search)
+        // console.log('this is a recipe:',recipes)
         // fetch
         // return search;
         // fetchData(search)
         // console.log(se
         // searchInput.reset()
     }
-    // const submitHandler =
 
   return (
     <section className="search">

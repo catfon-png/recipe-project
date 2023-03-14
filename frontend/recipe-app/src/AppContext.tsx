@@ -1,12 +1,12 @@
 import { createContext } from "react";
-import { Recipe } from "./types";
+import { IRecipe } from "./types";
 
 interface IAppContext {
   search: string;
   setSearch: (recipe: string) => void;
   query: string;
   setQuery: (recipe: string) => void;
-  recipes : Recipe[]
+  recipes : IRecipe[]
 
 }
 

@@ -1,16 +1,25 @@
 import React, {useContext} from 'react'
 import { AppContext } from '../AppContext'
 import '../styles/Recipe.css'
-import { Recipe, RecipeClass } from '../types'
+import { IRecipe, IRecipeClass } from '../types'
 
 // type recipeProps = {
 //     recipe: RecipeClass
 // }
+
 const Recipe = () => {
-    // const {recipes} = useContext(AppContext);
+    const {recipes} = useContext(AppContext);
+    // if (!Array.isArray(recipes)) {
+    //     return <div>No recipes found</div>;
+    //   }
     // const {label, image, source, shareAs, ingredientLines} = props.recipe;
   return (
     <div className='recipe'>
+        <p>This is a recipe</p>
+        {/* <p>{title}</p> */}
+        
+        {/* {recipes.map((rec, index) => <li key={index}>{rec.recipes.calories}</li> )} */}
+        
         {/* {recipe.map(rec => (
             <h3 className='recipe__title'>{rec.label}</h3>
 

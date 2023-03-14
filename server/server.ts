@@ -12,13 +12,13 @@ const apiKey = "c4863efa2b218a6cc7151c09f620ed76";
 const apiUrl = `https://api.edamam.com/search?q=pasta&app_id=${apiId}&app_key=${apiKey}`;
 // decide what to do with the endpoint below
 // Don't forget error handling!!
-app.get("/api/recipes", async (req,res) => {
-    res.json({message : 'Hello there'})
-})
+// app.get("/api/recipes", async (req,res) => {
+//     res.json({message : 'Hello there'})
+// })
 app.get("/api/recipes/:query", async (req, res) => {
   const response = await axios
     .get(`https://api.edamam.com/search?q=${req.params.query}&app_id=${apiId}&app_key=${apiKey}`)
-    console.log(response.data.hits);
+    // console.log(response.data.hits);
     res.json(response.data.hits)
     
 });

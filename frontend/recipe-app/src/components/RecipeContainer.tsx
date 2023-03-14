@@ -20,9 +20,11 @@ const RecipeContainer = () => {
           {/* {recipes.recipes.calories} */}
         </ol>
         {/* {recipes.map((recipe, index) => <Recipe key={index} recipe={recipe.recipes}/>)} */}
-      <Recipe />
+        {/* {recipes.map((recipe: any, index: number) => <Recipe key={index} recipe={recipe.recipe}/>)} */}
+    {/* //   <Recipe /> */}
       </div>
-        {recipes.map((recipe, index) => (<li key={index}>{JSON.stringify(recipe)}</li>))}
+        {/* {recipes.map((recipe: any, index: number) => (<li key={index}>{recipe.recipe.label}</li>))} */}
+        {recipes.map((recipe: any, index: number) => <Recipe key={index} recipe={recipe.recipe}/>)}
     </>
   );
 };

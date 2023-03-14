@@ -21,6 +21,9 @@ export interface IRecipeClass {
     totalDaily:      Total;
     digest:          any[];
 }
+export interface IIngredients {
+    
+}
 
 export interface IRecipe {
     recipes: IRecipeClass;

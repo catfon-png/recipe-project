@@ -8,7 +8,7 @@ import { IRecipe, IRecipes } from "./types";
 import Recipe from "./components/Recipe";
 
 const App = () => {
-  const [recipes, setRecipes] = useState<IRecipe[]>([]);
+  const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
 

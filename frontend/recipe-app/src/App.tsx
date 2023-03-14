@@ -29,9 +29,7 @@ const App = () => {
   useEffect(() => {
     getRecipes()
   }, [query])
-  // useEffect(() => {
-  //   setRecipes([])
-  // }, [query])
+  
 
   return (
     <div className="App">

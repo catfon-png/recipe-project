@@ -12,12 +12,7 @@ const Search = () => {
         console.log('You searched:', search) 
         setSearch(search)
         setQuery(search)
-        // console.log('this is a recipe:',recipes)
-        // fetch
-        // return search;
-        // fetchData(search)
-        // console.log(se
-        // searchInput.reset()
+       
     }
 
   return (

@@ -16,14 +16,11 @@ const getCollection = async () => {
   return collection;
 };
 
-const saveRecipe = async () => {
-  const recipeToSave = {
-    //add something here por favor
-  }
+export const saveRecipe = async (recipe : any) => {
   const collection = await getCollection();
-  const result = await collection.insertOne(recipeToSave);
+  const result = await collection.insertOne(recipe);
   console.log("Inserted a new recipe:", result.insertedId)
-  return recipeToSave;
+  return recipe;
 }
 
 // const getCartCollection = async () => {

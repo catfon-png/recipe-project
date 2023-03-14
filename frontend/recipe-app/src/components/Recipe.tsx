@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext } from "react";
 import { AppContext } from "../AppContext";
 import "../styles/Recipe.css";
@@ -20,7 +21,10 @@ const Recipe = (props: recipeProps) => {
     };
     setSavedRecipes([...savedRecipes, newRecipes]);
     // console.log('hello')
-  };
+    axios.post("http://localhost:5000/api/recipes/", newRecipes)
+        .then((response) => {console.log(response)})
+};
+
   return (
     <div className="recipe">
       <h3>{label}</h3>

@@ -8,7 +8,7 @@ const RecipeContainer = () => {
   const { recipes } = useContext(AppContext);
   return (
     <>
-      <h3>{search}</h3>
+      {/* <h2 className="recipe-container__heading">{search}</h2> */}
       <div className="recipe-container">
         {recipes.map((recipe: any, index: number) => (
           <Recipe key={index} recipe={recipe.recipe} />

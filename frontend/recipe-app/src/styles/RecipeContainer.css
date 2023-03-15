@@ -1,4 +1,22 @@
 .recipe-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+.recipe-container__heading{
+    align-self: flex-start;
+}
+
+@media screen and (min-width: 800px) {
+    .recipe-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* gap: 1rem; */
+    }
+}
+@media screen and (min-width: 1000px) {
+    .recipe-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* gap: 1rem; */
+    }
 }

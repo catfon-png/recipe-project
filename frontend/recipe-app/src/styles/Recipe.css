@@ -1,7 +1,7 @@
 .recipe{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
     /* width: 25rem; */
 } */
   
@@ -41,10 +41,13 @@
   }
   
   .recipe__url a {
-    color: #144170;
+    color: #227014;
     text-decoration: none;
   }
-  
+  .recipe__url:hover a{
+    color: #143e0c;
+    text-decoration: none;
+  }
   button {
     /* font-size: 1.2rem; */
     background-color: #519058;

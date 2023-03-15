@@ -27,13 +27,3 @@ background-color: #676aca;
     gap: 10px;
     padding: 10px;
 }
-
-.delete-recipes__button{
-    background-color: rgb(212, 115, 115);
-    /* width: 1rem; */
-}
-
-.delete-recipes__button:hover{
-    background-color: rgb(173, 40, 40);
-    /* width: 1rem; */
-}

@@ -37,9 +37,10 @@ app.post("/api/recipes", async (req, res) => {
       .send({ message: "Something is not right with your request..." });
   }
 });
-app.post("/api/recipes/:recipeId", async (req, res) => {
+app.put("/api/recipes", async (req, res) => {
+    console.log(req.body.recipeId)
   try {
-    updateRecipe(req.body)
+    await updateRecipe(req.body)
   } catch (error) {}
 });
 

@@ -2,7 +2,6 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 20px;
     padding: 20px;
-    /* width: 25rem; */
 } */
   
   .recipe h2 {
@@ -12,23 +11,17 @@
   }
   
   .recipe__image {
-    /* max-width: 100%;
-    height: auto;
-    margin: 10px 0; */
     width: 80%;
-  /* height: 100%; */
   align-content: center;
   object-fit: cover;
   margin: 10px 0;
   }
   
   .recipe h4 {
-    /* font-size: 1.5rem; */
     margin: 10px 0;
   }
   
   .recipe li {
-    /* font-size: 1.2rem; */
     margin-bottom: 5px;
     list-style-type: disc;
     list-style-position: inside;
@@ -36,7 +29,6 @@
   
   .recipe__image,
   .recipe__url {
-    /* font-size: 1.2rem; */
     margin: 10px 0;
   }
   
@@ -49,7 +41,6 @@
     text-decoration: none;
   }
   button {
-    /* font-size: 1.2rem; */
     background-color: #519058;
     color: #fff;
     border: none;

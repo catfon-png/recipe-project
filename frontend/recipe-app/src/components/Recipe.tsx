@@ -38,7 +38,6 @@ const Recipe = (props: recipeProps) => {
       {ingredientLines.map((ing: string, index: number) => (
         <li key={index}>{ing}</li>
       ))}
-      {/* <p className="recipe__image">Source: {source}</p> */}
       <p className="recipe__url">
         <a href={shareAs}>Check the full recipe here</a>
       </p>

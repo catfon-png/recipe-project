@@ -17,7 +17,7 @@ const SavedRecipes = () => {
   return (
     <>
       <div className="saved-recipes">
-        <h3>Or check out your saved recipes!</h3>
+        <h3 className="saved-recipes__heading">Or check out your saved recipes!</h3>
         <button className="saved-recipes__button" onClick={clickHandler}>
           Your saved Recipes
         </button>

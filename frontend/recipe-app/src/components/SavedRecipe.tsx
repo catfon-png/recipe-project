@@ -14,8 +14,9 @@ const SavedRecipe = (props: savedRecProps) => {
     props.recipe;
   const { savedRecipes, setSavedRecipes } = useContext(AppContext);
   const updateData = async () => {
+    console.log(status)
     axios
-      .put("http://localhost:5000/api/recipes/", status)
+      .put("http://localhost:5000/api/recipes/", {recipeId: recipeId, status : !status})
       .then((response) => {
         console.log(response);
       });
@@ -23,19 +24,8 @@ const SavedRecipe = (props: savedRecProps) => {
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setStatus(event.target.checked);
     updateData();
-    // setSavedRecipes(updatedRecipe)
   };
-//   const updatedRecipe: ISavedRecipe = {
-//     recipeId: recipeId,
-//     label: label,
-//     image: image,
-//     source: source,
-//     shareAs: shareAs,
-//     ingredientLines: ingredientLines,
-//     status: status,
-//   };
-  
-  //   const updateDb
+
   const deleteHandler = (recipe: ISavedRecipe) => {
     const id = recipe.recipeId;
     setSavedRecipes(savedRecipes.filter((rec) => rec.recipeId != id));

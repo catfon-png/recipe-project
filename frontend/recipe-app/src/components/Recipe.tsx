@@ -1,10 +1,9 @@
 import axios from "axios";
-// import { v4 as uuidv4 } from 'uuid'
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AppContext } from "../AppContext";
 import "../styles/Recipe.css";
-import { IRecipe, IRecipeClass, ISavedRecipe } from "../types";
-const { v4: uuidv4 } = require('uuid');
+import { IRecipeClass, ISavedRecipe } from "../types";
+const { v4: uuidv4 } = require("uuid");
 
 type recipeProps = {
   recipe: IRecipeClass;
@@ -16,7 +15,7 @@ const Recipe = (props: recipeProps) => {
   const { setSavedRecipes, savedRecipes } = useContext(AppContext);
   const saveHandler = () => {
     const newRecipes: ISavedRecipe = {
-    recipeId: generateCartId(),
+      recipeId: generateCartId(),
       label: label,
       image: image,
       source: source,
@@ -24,11 +23,13 @@ const Recipe = (props: recipeProps) => {
       ingredientLines: ingredientLines,
     };
     setSavedRecipes([...savedRecipes, newRecipes]);
-    // console.log('hello')
-    axios.post("http://localhost:5000/api/recipes/", newRecipes)
-        .then((response) => {console.log(response)})
-};
-  
+    axios
+      .post("http://localhost:5000/api/recipes/", newRecipes)
+      .then((response) => {
+        console.log(response);
+      });
+  };
+
   return (
     <div className="recipe">
       <h2>{label}</h2>
@@ -37,10 +38,11 @@ const Recipe = (props: recipeProps) => {
       {ingredientLines.map((ing: string, index: number) => (
         <li key={index}>{ing}</li>
       ))}
-      <p className="recipe__image">Source: {source}</p>
-      <p className="recipe__url"><a href={shareAs}>Check the full recipe here</a></p>
+      {/* <p className="recipe__image">Source: {source}</p> */}
+      <p className="recipe__url">
+        <a href={shareAs}>Check the full recipe here</a>
+      </p>
       <button onClick={saveHandler}>Save</button>
-      {/* <button> Delete</button> */}
     </div>
   );
 };

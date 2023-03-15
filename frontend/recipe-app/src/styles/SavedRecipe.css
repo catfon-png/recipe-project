@@ -24,10 +24,16 @@
     height: 100px;
     margin-top: 45px;
     margin-bottom: 20px;
-
-    /* margin: 15px; */
-
 }
+
+.saved-recipe__source a {
+    color: #227014;
+    /* text-decoration: none; */
+  }
+.saved-recipe__source:hover a{
+    color: #143e0c;
+    text-decoration: none;
+  }
 
 .delete-recipes__button{
     margin-bottom: 20px;

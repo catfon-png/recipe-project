@@ -10,10 +10,9 @@ app.use(cors());
 
 const apiId = "1fbf7cde";
 const apiKey = "c4863efa2b218a6cc7151c09f620ed76";
-const apiUrl = `https://api.edamam.com/search?q=pasta&app_id=${apiId}&app_key=${apiKey}`;
 
 // Don't forget error handling!!
-app.get("/api/recipes", async (req, res) => {
+app.get("/api/recipes", async (_req, res) => {
   const savedRecipes = await dbRecipes();
   const arraySavedRecipes = await savedRecipes.toArray();
   console.log("this", arraySavedRecipes);
@@ -27,23 +26,23 @@ app.get("/api/recipes/:query", async (req, res) => {
   // console.log(response.data.hits);
   res.json(response.data.hits);
 });
-// app.get("api/recipes/");
 
 app.post("/api/recipes", async (req, res) => {
-  //   console.log("mokoko");
   try {
     saveRecipe(req.body);
-    return res
-    // .set('location', `/api/recipes/${recipeId}`)
-    .status(201).json();
+    return res.status(201).json();
   } catch (error) {
-    res.status(400).send({message : 'Something is not right with your request...'});
+    res
+      .status(400)
+      .send({ message: "Something is not right with your request..." });
   }
+});
+app.post("/api/recipes/:recipeId", async (req, res) => {
+  try {
+  } catch (error) {}
 });
 
 app.delete("/api/recipes/:recipeId", async (req, res) => {
-    console.log('ojokoko');
-    
   try {
     await deleteRecipe(req.params.recipeId);
     res.status(204).send();

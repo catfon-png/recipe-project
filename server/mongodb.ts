@@ -31,35 +31,14 @@ export const dbRecipes = async () => {
 
 export const updateRecipe = async (recipe : any) => {
   const collection = await getCollection();
-  const label = recipe.label;
-  await collection.updateOne({label : {$set: recipe}});
-  const updatedDb = await collection.findOne({label: label})
+  const id = recipe.recipeId;
+  await collection.updateOne({recipeId : {$set: recipe}});
+  const updatedDb = await collection.findOne({recipeId: id})
   return updatedDb;
 
 }
 export const deleteRecipe = async (recipeId : string) => {
   const collection = await getCollection();
-  //something to find the item?
   const deletedRecipe = await collection.deleteOne({recipeId: recipeId})
   return deletedRecipe;
 }
-
-// const getCartCollection = async () => {
-//   await client.connect();
-//   const db = client.db('Cluster0');
-//   const collection = db.collection('recipes');
-//   return collection;
-// };
-// const createNewCart = async () => {
-//   const newCart = {
-//     cartId: '1',
-//     products: [],
-//     totalNumberOfItems: 0,
-//     totalPrice: 0,
-//   };
-//   const collection = await getCartCollection();
-//   const result = await collection.insertOne(newCart);
-//   console.log("Inserted new cart with ID:", result.insertedId);
-//   return newCart;
-// };
-// createNewCart();

@@ -28,7 +28,7 @@ export interface ISavedRecipe {
   source: string;
   shareAs: string;
   ingredientLines: string[];
-  note? : string;
+  status? : boolean;
 }
 
 export interface IRecipe {

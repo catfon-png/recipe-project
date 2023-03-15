@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import { AppContext } from "./AppContext";
 import RecipeContainer from "./components/RecipeContainer";
 import Search from "./components/Search";
-import { IRecipe, IRecipes, ISavedRecipe } from "./types";
-import Recipe from "./components/Recipe";
+import { ISavedRecipe } from "./types";
 import SavedRecipes from "./components/SavedRecipes";
 
 const App = () => {
@@ -13,6 +12,7 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const [showSavedRecipes, setShowSavedRecipes] = useState(false);
+  const [status, setStatus] = useState(false)
   const [savedRecipes, setSavedRecipes] = useState<ISavedRecipe[]>([
     {recipeId : "", label: "", image: "", source: "", shareAs: "", ingredientLines: [] },
   ]);
@@ -30,7 +30,6 @@ const App = () => {
       console.log("this is your error", error);
       setRecipes([]);
     }
-    // console.log('a recipe ',typeof recipes)
   };
 
   useEffect(() => {
@@ -42,8 +41,6 @@ const App = () => {
     }
   return (
     <div className="App">
-      {/* <p>{savedRecipes.map((item) => <p>{item.image}</p>)}</p> */}
-      {/* <p>{recipes}</p> */}
       <AppContext.Provider
         value={{
           search,
@@ -55,7 +52,9 @@ const App = () => {
           setSavedRecipes,
           showSavedRecipes,
           setShowSavedRecipes,
-          deleteRecipe
+          deleteRecipe,
+          status,
+          setStatus
         }}
       >
         <Search />

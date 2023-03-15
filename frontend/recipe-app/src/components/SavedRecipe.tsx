@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { ChangeEvent, useContext, useEffect } from "react";
 import axios from "axios";
 import { AppContext } from "../AppContext";
 import { ISavedRecipe } from "../types";
@@ -9,8 +9,12 @@ type savedRecProps = {
 };
 
 const SavedRecipe = (props: savedRecProps) => {
+  const { status, setStatus } = useContext(AppContext);
   const { label, image, shareAs } = props.recipe;
   const { savedRecipes, setSavedRecipes } = useContext(AppContext);
+  const changeHandler = (event : ChangeEvent<HTMLInputElement>) => {
+    setStatus(event.target.checked)
+  }
   const deleteHandler = (recipe: ISavedRecipe) => {
     const id = recipe.recipeId;
     setSavedRecipes(savedRecipes.filter((rec) => rec.recipeId != id));
@@ -19,7 +23,6 @@ const SavedRecipe = (props: savedRecProps) => {
   useEffect(() => {
     const gdata = async () => {
       const res = await axios.get("http://localhost:5000/api/recipes/");
-      console.log(res);
       setSavedRecipes(res.data);
     };
     gdata();
@@ -34,6 +37,10 @@ const SavedRecipe = (props: savedRecProps) => {
             Full recipe
           </a>
         </p>
+        <label className="saved-recipe__status">
+            <p>Cooked?</p>
+            <input className="saved-recipe__status__checked" type='checkbox' onChange={changeHandler}/>
+        </label>
         <button
           className="delete-recipes__button"
           onClick={() => deleteHandler(props.recipe)}

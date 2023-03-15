@@ -1,18 +1,22 @@
 import axios from "axios";
+// import { v4 as uuidv4 } from 'uuid'
 import React, { useContext } from "react";
 import { AppContext } from "../AppContext";
 import "../styles/Recipe.css";
 import { IRecipe, IRecipeClass, ISavedRecipe } from "../types";
+const { v4: uuidv4 } = require('uuid');
 
 type recipeProps = {
   recipe: IRecipeClass;
 };
+const generateCartId = () => uuidv4();
 
 const Recipe = (props: recipeProps) => {
   const { label, image, source, shareAs, ingredientLines } = props.recipe;
   const { setSavedRecipes, savedRecipes } = useContext(AppContext);
   const saveHandler = () => {
     const newRecipes: ISavedRecipe = {
+    recipeId: generateCartId(),
       label: label,
       image: image,
       source: source,

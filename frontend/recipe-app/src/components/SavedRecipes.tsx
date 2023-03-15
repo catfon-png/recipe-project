@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { AppContext } from "../AppContext";
 import Recipe from "./Recipe";
 import "../styles/SavedRecipes.css";
-import {ISavedRecipe} from '../types'
+import { ISavedRecipe } from "../types";
 
 const SavedRecipes = () => {
   const {
@@ -16,9 +16,11 @@ const SavedRecipes = () => {
   const clickHandler = () => {
     setShowSavedRecipes(!showSavedRecipes);
   };
-  const deleteHandler = (recipe : ISavedRecipe) => {
-    const label = recipe.label;
-    setSavedRecipes(savedRecipes.filter((rec) => rec.label != label))
+  const deleteHandler = (recipe: ISavedRecipe) => {
+    const id = recipe.recipeId;
+    setSavedRecipes(savedRecipes.filter((rec) => rec.recipeId != id));
+    axios.delete(`http://localhost:5000/api/recipes/${recipe.recipeId}`);
+
   };
 
   useEffect(() => {
@@ -30,11 +32,6 @@ const SavedRecipes = () => {
     gdata();
   }, []);
 
-    // useEffect(() => {
-    //   const deleteData = async () => {
-    //     const res = 
-    //   }
-    // })
   return (
     <>
       <div className="saved-recipes">

@@ -14,7 +14,7 @@ const App = () => {
   const [query, setQuery] = useState("");
   const [showSavedRecipes, setShowSavedRecipes] = useState(false);
   const [savedRecipes, setSavedRecipes] = useState<ISavedRecipe[]>([
-    { label: "", image: "", source: "", shareAs: "", ingredientLines: [] },
+    {recipeId : "", label: "", image: "", source: "", shareAs: "", ingredientLines: [] },
   ]);
 
   const getRecipes = async () => {

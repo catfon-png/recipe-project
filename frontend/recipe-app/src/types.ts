@@ -22,11 +22,13 @@ export interface IRecipeClass {
   digest: any[];
 }
 export interface ISavedRecipe {
+  recipeId : string,
   label: string;
   image: string;
   source: string;
   shareAs: string;
   ingredientLines: string[];
+  note? : string;
 }
 
 export interface IRecipe {

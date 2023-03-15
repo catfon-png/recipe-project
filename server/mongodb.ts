@@ -37,10 +37,10 @@ export const updateRecipe = async (recipe : any) => {
   return updatedDb;
 
 }
-export const deleteRecipe = async (recipe : any) => {
+export const deleteRecipe = async (recipeId : string) => {
   const collection = await getCollection();
   //something to find the item?
-  const deletedRecipe = await collection.deleteOne({label: recipe.label})
+  const deletedRecipe = await collection.deleteOne({recipeId: recipeId})
   return deletedRecipe;
 }
 

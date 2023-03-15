@@ -36,9 +36,7 @@ const App = () => {
     getRecipes();
   }, [query]);
 
-    const deleteRecipe = async () => {
-
-    }
+    
   return (
     <div className="App">
       <AppContext.Provider
@@ -52,7 +50,6 @@ const App = () => {
           setSavedRecipes,
           showSavedRecipes,
           setShowSavedRecipes,
-          deleteRecipe,
           status,
           setStatus
         }}

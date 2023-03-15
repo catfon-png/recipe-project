@@ -10,11 +10,32 @@ type savedRecProps = {
 
 const SavedRecipe = (props: savedRecProps) => {
   const { status, setStatus } = useContext(AppContext);
-  const { label, image, shareAs } = props.recipe;
+  const { recipeId, label, image, shareAs, source, ingredientLines } =
+    props.recipe;
   const { savedRecipes, setSavedRecipes } = useContext(AppContext);
-  const changeHandler = (event : ChangeEvent<HTMLInputElement>) => {
-    setStatus(event.target.checked)
-  }
+  const updateData = async () => {
+    axios
+      .put("http://localhost:5000/api/recipes/", status)
+      .then((response) => {
+        console.log(response);
+      });
+  };
+  const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setStatus(event.target.checked);
+    updateData();
+    // setSavedRecipes(updatedRecipe)
+  };
+//   const updatedRecipe: ISavedRecipe = {
+//     recipeId: recipeId,
+//     label: label,
+//     image: image,
+//     source: source,
+//     shareAs: shareAs,
+//     ingredientLines: ingredientLines,
+//     status: status,
+//   };
+  
+  //   const updateDb
   const deleteHandler = (recipe: ISavedRecipe) => {
     const id = recipe.recipeId;
     setSavedRecipes(savedRecipes.filter((rec) => rec.recipeId != id));
@@ -38,8 +59,12 @@ const SavedRecipe = (props: savedRecProps) => {
           </a>
         </p>
         <label className="saved-recipe__status">
-            <p>Cooked?</p>
-            <input className="saved-recipe__status__checked" type='checkbox' onChange={changeHandler}/>
+          <p>Cooked?</p>
+          <input
+            className="saved-recipe__status__checked"
+            type="checkbox"
+            onChange={changeHandler}
+          />
         </label>
         <button
           className="delete-recipes__button"

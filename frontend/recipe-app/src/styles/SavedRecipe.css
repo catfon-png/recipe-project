@@ -1,8 +1,7 @@
 .saved-recipe{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    /* background-color: #8c8ff264; */
     box-sizing: border-box;
-    height: 130px;
+    height: 200px;
     width: 300px;
     margin: 10px;
     padding: 10px;
@@ -14,11 +13,9 @@
 }
 .saved-recipe__text{
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
-/* .saved-recipe__heading{
-    padding: 20px;
-} */
+
 .saved-recipe__image{
     width: 100px;
     height: 100px;

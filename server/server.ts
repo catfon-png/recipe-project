@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import axios from "axios";
 import cors from "cors";
-import { dbRecipes, deleteRecipe, saveRecipe } from "./mongodb";
+import { dbRecipes, deleteRecipe, saveRecipe, updateRecipe } from "./mongodb";
 
 const app: Application = express();
 const port = 5000;
@@ -39,6 +39,7 @@ app.post("/api/recipes", async (req, res) => {
 });
 app.post("/api/recipes/:recipeId", async (req, res) => {
   try {
+    updateRecipe(req.body)
   } catch (error) {}
 });
 

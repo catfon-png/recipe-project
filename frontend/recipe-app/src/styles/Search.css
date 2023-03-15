@@ -3,6 +3,10 @@
     margin: 20px;
     /* padding: 10px; */
 }
+h1{
+  font-size: 50px;
+  align-content: center;
+}
 .search-recipe__input{
     margin: 10px;
     padding: 5px;

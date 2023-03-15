@@ -11,7 +11,6 @@ interface IAppContext {
   setSavedRecipes: (recipe : ISavedRecipe[]) => void;
   showSavedRecipes: boolean;
   setShowSavedRecipes: (recipe : boolean) => void;
-  deleteRecipe: (recipe : ISavedRecipe) => void;
   status: boolean;
   setStatus: (recipe: boolean) => void;
 
@@ -27,7 +26,6 @@ export const AppContext = createContext<IAppContext>({
   setSavedRecipes: (recipe) => {}, 
   showSavedRecipes : false,
   setShowSavedRecipes: (recipe) => {},
-  deleteRecipe: (recipe) => {},
   status: false,
   setStatus: (recipe) => {}
 

@@ -24,7 +24,7 @@ const Recipe = (props: recipeProps) => {
     axios.post("http://localhost:5000/api/recipes/", newRecipes)
         .then((response) => {console.log(response)})
 };
-
+  
   return (
     <div className="recipe">
       <h2>{label}</h2>

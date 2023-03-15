@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { AppContext } from "../AppContext";
 import Recipe from "./Recipe";
 import "../styles/SavedRecipes.css";
+import {ISavedRecipe} from '../types'
 
 const SavedRecipes = () => {
   const {
@@ -15,9 +16,11 @@ const SavedRecipes = () => {
   const clickHandler = () => {
     setShowSavedRecipes(!showSavedRecipes);
   };
-  const deleteHandler = () => {
-    // setSavedRecipes(savedRecipes.filter((r) => r.label != label))
+  const deleteHandler = (recipe : ISavedRecipe) => {
+    const label = recipe.label;
+    setSavedRecipes(savedRecipes.filter((rec) => rec.label != label))
   };
+
   useEffect(() => {
     const gdata = async () => {
       const res = await axios.get("http://localhost:5000/api/recipes/");
@@ -26,6 +29,12 @@ const SavedRecipes = () => {
     };
     gdata();
   }, []);
+
+    // useEffect(() => {
+    //   const deleteData = async () => {
+    //     const res = 
+    //   }
+    // })
   return (
     <>
       <div className="saved-recipes">
@@ -36,7 +45,7 @@ const SavedRecipes = () => {
       </div>
       <div className="saved-recipes__display">
         {showSavedRecipes == true &&
-          savedRecipes.map((recipe: any, index: number) => {
+          savedRecipes.map((recipe: ISavedRecipe, index: number) => {
             return (
               <div>
                 <p key={index}>
@@ -46,7 +55,7 @@ const SavedRecipes = () => {
                 </p>
                 <button
                   className="delete-recipes__button"
-                  onClick={deleteHandler}
+                  onClick={() => deleteHandler(recipe)}
                 >
                   Delete
                 </button>

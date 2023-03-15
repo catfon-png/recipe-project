@@ -30,19 +30,23 @@ app.get("/api/recipes/:query", async (req, res) => {
 // app.get("api/recipes/");
 
 app.post("/api/recipes", async (req, res) => {
-  console.log("mokoko");
-  saveRecipe(req.body);
-  return res.status(201).json();
+  //   console.log("mokoko");
+  try {
+    saveRecipe(req.body);
+    return res.status(201).json();
+  } catch (error) {
+    res.status(400).send({message : 'Something is not right with your request...'});
+  }
 });
 
-// app.delete("/api/recipes", async (req, res) => {
+app.delete("/api/recipes", async (req, res) => {
 //   try {
 //     await deleteRecipe();
 //     res.status(204).send();
 //   } catch (error) {
 //     res.status(500).send(error);
 //   }
-// });
+});
 
 app.listen(port, () => {
   console.log(`App listening on ${port}`);

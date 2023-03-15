@@ -29,11 +29,19 @@ export const dbRecipes = async () => {
   return result;
 }
 
+export const updateRecipe = async (recipe : any) => {
+  const collection = await getCollection();
+  const label = recipe.label;
+  await collection.updateOne({label : {$set: recipe}});
+  const updatedDb = await collection.findOne({label: label})
+  return updatedDb;
+
+}
 export const deleteRecipe = async (recipe : any) => {
   const collection = await getCollection();
-  const deletedRecipe = await collection.deleteOne(recipe)
+  //something to find the item?
+  const deletedRecipe = await collection.deleteOne({label: recipe.label})
   return deletedRecipe;
-
 }
 
 // const getCartCollection = async () => {

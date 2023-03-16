@@ -11,7 +11,6 @@ app.use(cors());
 const apiId = "1fbf7cde";
 const apiKey = "c4863efa2b218a6cc7151c09f620ed76";
 
-// Don't forget error handling!!
 app.get("/api/recipes", async (_req, res) => {
   const savedRecipes = await dbRecipes();
   const arraySavedRecipes = await savedRecipes.toArray();
@@ -23,7 +22,6 @@ app.get("/api/recipes/:query", async (req, res) => {
   const response = await axios.get(
     `https://api.edamam.com/search?q=${req.params.query}&app_id=${apiId}&app_key=${apiKey}`
   );
-  // console.log(response.data.hits);
   res.json(response.data.hits);
 });
 

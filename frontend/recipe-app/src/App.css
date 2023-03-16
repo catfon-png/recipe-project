@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    /* box-sizing: ; */
 }
 .App {
     margin: 50px;
@@ -11,5 +10,4 @@
    justify-content: center;
    align-items: center;   
    flex-direction: column;
-   /* background-color: rgba(189, 234, 189, 0.547); */
 }

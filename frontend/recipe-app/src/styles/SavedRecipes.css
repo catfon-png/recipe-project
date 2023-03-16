@@ -1,8 +1,8 @@
 .saved-recipes{
     display: flex;
     flex-direction: column;
-align-content: center;
-justify-content: center;
+    align-content: center;
+    justify-content: center;
 }
 .saved-recipes__button{
     margin: 10px;
